@@ -19,11 +19,5 @@ namespace Installers
             _model = new ScreenModel(_lettersPool);
             _presenter = new ScreenPresenter(_view, _model).Init();
         }
-
-        private void OnDestroy()
-        {
-            _presenter = default;
-            _model = default;
-        }
     }
 }

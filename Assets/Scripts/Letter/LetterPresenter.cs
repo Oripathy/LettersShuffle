@@ -16,13 +16,12 @@ namespace Letter
             _model = model;
         }
 
-        public LetterPresenter Init()
+        public void Init()
         {
             _model.MoveCommandReceived += MoveLetter;
             _model.LetterReceived += OnLetterReceived;
             _model.ActiveStateChanged += OnActiveStateChanged;
             _view.ObjectDestroyed += Dispose;
-            return this;
         }
 
         private void OnLetterReceived(Vector2 position, string letter, float[] size)

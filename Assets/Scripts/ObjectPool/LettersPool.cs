@@ -9,7 +9,7 @@ namespace ObjectPool
         [SerializeField] private LetterView _letterPrefab;
 
         private const int PoolCapacity = 144;
-        private Stack<LetterModel> _letters = new Stack<LetterModel>();
+        private readonly Stack<LetterModel> _letters = new Stack<LetterModel>(PoolCapacity);
 
         public void Init(RectTransform parent)
         {
@@ -17,7 +17,8 @@ namespace ObjectPool
             {
                 var view = Instantiate(_letterPrefab, parent, false);
                 var model = new LetterModel();
-                new LetterPresenter(view, model).Init();
+                var presenter = new LetterPresenter(view, model);
+                presenter.Init();
                 model.SetActive(false);
                 _letters.Push(model);
             }

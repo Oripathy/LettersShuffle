@@ -15,10 +15,10 @@ namespace MainScreen
 
         private readonly int[] _widthRange = { 3, 12 };
         private readonly int[] _heightRange = { 3, 12 };
-        private readonly List<string> _alphabet = new List<string>();
-        private LettersPool _lettersPool;
-        private List<List<Vector2>> _cells = new List<List<Vector2>>();
-        private List<LetterModel> _letters = new List<LetterModel>();
+        private readonly List<string> _alphabet = new List<string>(26);
+        private readonly List<List<Vector2>> _cells = new List<List<Vector2>>(144);
+        private readonly List<LetterModel> _letters = new List<LetterModel>(144);
+        private readonly LettersPool _lettersPool;
         private int _width;
         private int _height;
         private float _cellWidth;
@@ -33,7 +33,7 @@ namespace MainScreen
             
             for (var symbol = 'A'; symbol <= 'Z'; symbol++)
             {
-                _alphabet.Add("" + symbol);
+                _alphabet.Add(symbol.ToString());
             }
         }
 
